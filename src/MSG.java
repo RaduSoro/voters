@@ -1,5 +1,7 @@
 public class MSG {
-    public static final String SERVER = "server";
-    public static final String VOTER = "voter";
-    public static final String LOGGER = "logger";
+    public static final String JOIN = "JOIN ";
+    public static final String DETAILS = "DETAILS";
+    public static final String VOTE_OPTIONS = "VOTE_OPTIONS";
+    public static final String OUTCOME = "OUTCOME ";
+    public static final String VOTE = "VOTE ";
 }

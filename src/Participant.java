@@ -4,7 +4,7 @@ import java.util.Arrays;
 public class Participant {
     public static void main(String[] args) {
 //        <cport> <lport> <pport> <timeout>
-        Comms comms = new Comms(MSG.VOTER,args);
+        Client comms = new Client(args);
         ArrayList<String> options = new ArrayList<>(Arrays.asList(args));
         System.out.println("Starting client with the options: ");
         System.out.println("Coordinator Port: "+args [0]);

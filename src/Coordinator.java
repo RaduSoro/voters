@@ -5,7 +5,7 @@ public class Coordinator {
     public static void main(String[] args) {
 //        〈port〉 〈lport〉 〈parts〉 〈timeout〉[〈option〉]
 //        ArrayList<String> options = new ArrayList<>(Arrays.asList(args));
-        Comms comms = new Comms(MSG.SERVER, args);
+        Server comms = new Server(args);
         System.out.println("Starting coordinator with the options: ");
         System.out.println("Port: "+args [0]);
         System.out.println("Logger port: "+args [1]);
