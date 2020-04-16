@@ -48,7 +48,7 @@ public class Server implements Runnable {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        while (true) try {
+        while (maxParticipants!=0) try {
             socket = serverSocket.accept();
             System.out.println("Acquired new client " + socket.getLocalPort());
             thread = new Thread() {
@@ -83,7 +83,6 @@ public class Server implements Runnable {
                 });
                 broadcast(clientDetails[0]);
                 broadcast(voteOpt);
-                System.out.println(clientDetails);
             }
                 System.out.println(maxParticipants);
         } catch (Exception e) {
