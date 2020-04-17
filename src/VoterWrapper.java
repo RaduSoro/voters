@@ -1,30 +1,20 @@
-import java.io.IOException;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
-import java.net.Socket;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashMap;
 
 public class VoterWrapper {
-    private Socket socket;
-    private ObjectOutputStream outputStream;
-    private ObjectInputStream inputStream;
-    public int port;
-    public VoterWrapper(Socket socket){
-        port = socket.getPort();
-        try {
-            outputStream = new ObjectOutputStream(socket.getOutputStream());
-            outputStream.flush();
-            inputStream = new ObjectInputStream(socket.getInputStream());
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+    private  Client coordinatorClient;
+    public  HashMap<String,Client> clients;
+    private Server participantServer;
+    private ArrayList<String> args;
+
+    public VoterWrapper(String[] args){
+        this.args = new ArrayList<>(Arrays.asList(args));
+        coordinatorClient = new Client(args,this);
     }
 
-    public void sendMessage(String message){
-        try {
-            outputStream.writeObject(message);
-            outputStream.flush();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+    public void initiateInfrastucture(ArrayList<String> parsedTokens){
+        clients = new HashMap<>();
+        clients.put("coordinatorClient",coordinatorClient);
     }
 }

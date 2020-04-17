@@ -6,6 +6,8 @@ import java.net.Socket;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
+import java.util.Map;
+import java.util.stream.Collectors;
 
 public class Server implements Runnable {
 
@@ -16,16 +18,24 @@ public class Server implements Runnable {
     private Thread thread;
     private int loggerPort;
     private int maxParticipants;
+    private String serverType;
     private int timeout;
     private ArrayList<String> options;
     private ArrayList<String> arguments;
+    private ArrayList<String> ports;
 
-    public Server (String[] arguments){
+    public Server (String[] arguments, String type){
         this.arguments = new ArrayList<>(Arrays.asList(arguments));
+        this.serverType = type;
+        ports = new ArrayList<>();
         socketThreadHashMap = new HashMap<>();
-        this.init();
+        if (type.equals(MSG.COORDINATOR)) this.init();
+        else this.initClientServer();
     }
 
+    public void initClientServer(){
+
+    }
 
     public void init(){
         this.port = Integer.parseInt(this.arguments.get(0));
@@ -71,22 +81,29 @@ public class Server implements Runnable {
             };
             thread.start();
             Thread.sleep(1000);
-            maxParticipants--;
-            if (maxParticipants == 0){
-                final String[] clientDetails = {MSG.DETAILS};
-                String voteOpt = MSG.VOTE_OPTIONS;
-                for (String option: options) {
-                    voteOpt += " " + option;
-                }
-                socketThreadHashMap.forEach((socket1, clientHandler) -> {
-                    clientDetails[0] += " "+socket1.getLocalPort();
-                });
-                broadcast(clientDetails[0]);
-                broadcast(voteOpt);
-            }
-                System.out.println(maxParticipants);
+            setupVote();
         } catch (Exception e) {
             e.printStackTrace();
+        }
+    }
+
+    public void setupVote(){
+        maxParticipants--;
+        if (maxParticipants == 0 && this.serverType.equals(MSG.COORDINATOR)){
+            String voteOpt = MSG.VOTE_OPTIONS;
+            for (String option: options) {
+                voteOpt += " " + option;
+            }
+            for(Map.Entry<Socket, ClientHandler> entry : socketThreadHashMap.entrySet()) {
+                Socket client = entry.getKey();
+                ClientHandler clientHandler = entry.getValue();
+                String options = MSG.DETAILS;
+                for (String port : ports){
+                    if (!port.equals(clientHandler.getPort())) options += " "+port;
+                }
+                sendObject(options,client);
+            }
+            broadcast(voteOpt);
         }
     }
     public void readObject(Socket socket, ObjectInputStream objectInputStream) {
@@ -94,7 +111,7 @@ public class Server implements Runnable {
         while (!clientHandler.getExitStatus() && !socket.isClosed()) {
             try {
                 Object o = objectInputStream.readObject();
-                handleClient(o,socket);
+                handleClient((String) o,socket);
             } catch (Exception e) {
                 clientHandler.closeStreams();
                 clientHandler.closeThread();
@@ -123,8 +140,19 @@ public class Server implements Runnable {
     public void sendInitialData(Socket socket){
         sendObject("Server hellos back",socket);
     }
-    public void handleClient(Object o, Socket socket){
-        System.out.println(o);
+    public void handleClient(String tokens, Socket socket){
+        ArrayList<String> parsedTokens =   new ArrayList<>(Arrays.asList(tokens.split(" ")));
+        String header = parsedTokens.get(0);
+        switch (header){
+            case MSG.JOIN:
+                this.ports.add(parsedTokens.get(1));
+                socketThreadHashMap.get(socket).setPort(parsedTokens.get(1));
+            break;
+            default:
+                System.out.println(tokens);
+            break;
+        }
+
     }
 
 }

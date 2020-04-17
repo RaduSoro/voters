@@ -9,6 +9,7 @@ class ClientHandler {
     private boolean status = false;
     private ObjectOutputStream objectOutputStream = null;
     private ObjectInputStream objectInputStream = null;
+    private String port;
     public ClientHandler(Thread thread, Socket socket) {
         this.thread = thread;
         this.socket = socket;
@@ -37,6 +38,13 @@ class ClientHandler {
         }
     }
 
+    public void setPort (String port){
+        this.port = port;
+    }
+
+    public String getPort(){
+        return this.port;
+    }
     public void closeThread(){
         this.thread = null;
     }
