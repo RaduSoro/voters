@@ -15,18 +15,29 @@ public class Client implements Runnable  {
     private int port;
     private VoterWrapper voterWrapper;
     private boolean foundHost = false;
+    private String type;
     private ObjectOutputStream objectOutputStream = null;
     private ObjectInputStream objectInputStream = null;
 
 
     private ArrayList<String> arguments;
 
-    public Client(String[] arguments, VoterWrapper voterWrapper){
-        this.arguments = new ArrayList<>(Arrays.asList(arguments));
+    public Client(ArrayList<String> arguments, VoterWrapper voterWrapper, String type){
+        this.type = type;
+        this.arguments = arguments;
         this.voterWrapper = voterWrapper;
-        this.initParticipant();
+        if (type.equals(MSG.COORDINATOR))this.initParticipant();
+        else this.initVoter();
     }
 
+    private void initVoter() {
+        System.out.println("INIT VOTER");
+        System.out.println(this.arguments);
+        this.loggerPort = Integer.parseInt(this.arguments.get(1));
+        this.port = Integer.parseInt(this.arguments.get(7));
+        this.timeout = Integer.parseInt(this.arguments.get(3));
+        connectAsClient(this.port);
+    }
 
 
     private void initParticipant(){
@@ -47,8 +58,10 @@ public class Client implements Runnable  {
                 objectOutputStream.flush();
                 objectInputStream = new ObjectInputStream(socket.getInputStream());
                 foundHost = true;
-                objectOutputStream.writeObject(MSG.JOIN + " " + this.port);
-                objectOutputStream.flush();
+                if (this.type.equals(MSG.COORDINATOR)){
+                    objectOutputStream.writeObject(MSG.JOIN + " " + this.port);
+                    objectOutputStream.flush();
+                }
                 System.out.println("CONNECTED TO SERVER");
             } catch (Exception e) {
                 System.out.println("Couldnt connect to server...");
@@ -83,6 +96,11 @@ public class Client implements Runnable  {
                 System.out.println("VOTING OPTIONS REACHED");
                 voterWrapper.initiateInfrastucture(parsedTokens);
                 break;
+            case MSG.DETAILS:
+                parsedTokens.remove(0);
+                voterWrapper.getDetails().addAll(parsedTokens);
+            break;
+
             default:
                 System.out.println(parsedTokens);
         }

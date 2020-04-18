@@ -7,7 +7,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.stream.Collectors;
 
 public class Server implements Runnable {
 
@@ -24,20 +23,26 @@ public class Server implements Runnable {
     private ArrayList<String> arguments;
     private ArrayList<String> ports;
 
-    public Server (String[] arguments, String type){
-        this.arguments = new ArrayList<>(Arrays.asList(arguments));
+    public Server (ArrayList<String> arguments, String type){
+        this.arguments = arguments;
         this.serverType = type;
         ports = new ArrayList<>();
         socketThreadHashMap = new HashMap<>();
-        if (type.equals(MSG.COORDINATOR)) this.init();
+        if (type.equals(MSG.COORDINATOR)) this.initCoordinatorServer();
         else this.initClientServer();
     }
 
     public void initClientServer(){
-
+        System.out.println(arguments);
+        this.loggerPort = Integer.parseInt(this.arguments.get(1));
+        this.port = Integer.parseInt(this.arguments.get(2));
+        this.timeout = Integer.parseInt(this.arguments.get(3));
+        this.maxParticipants = arguments.size()-4;
+        thread = new Thread(this, "ParticipantServer");
+        thread.start();
     }
 
-    public void init(){
+    public void initCoordinatorServer(){
         this.port = Integer.parseInt(this.arguments.get(0));
         this.loggerPort = Integer.parseInt(this.arguments.get(1));
         this.maxParticipants = Integer.parseInt(this.arguments.get(2));
@@ -47,7 +52,7 @@ public class Server implements Runnable {
             this.arguments.remove(0);
         }
         this.options = new ArrayList<>(this.arguments);
-        thread = new Thread(this, "server");
+        thread = new Thread(this, "Coordinator");
         thread.start();
     }
 
@@ -67,7 +72,7 @@ public class Server implements Runnable {
                     //creates the handler with the I/O object stream
                     ClientHandler clientHandler = new ClientHandler(this, socket);
                     socketThreadHashMap.put(socket, clientHandler);
-                    sendInitialData(socket);
+//                    sendInitialData(socket);
                     readObject(socket, clientHandler.getObjectInputStream());
                     socketThreadHashMap.remove(socket, clientHandler);
                     clientHandler = null;
@@ -81,10 +86,15 @@ public class Server implements Runnable {
             };
             thread.start();
             Thread.sleep(1000);
-            setupVote();
+            if (this.serverType.equals(MSG.COORDINATOR))setupVote();
+            else startupVote();
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    private void startupVote() {
+        System.out.println("STARTING VOTE");
     }
 
     public void setupVote(){

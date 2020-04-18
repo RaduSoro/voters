@@ -6,4 +6,5 @@ public class MSG {
     public static final String VOTE = "VOTE ";
     public static final String COORDINATOR = "COORDINATOR";
     public static final String CLIENT = "CLIENT";
+    public static final String VOTER = "VOTER";
 }
