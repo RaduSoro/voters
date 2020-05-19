@@ -117,7 +117,7 @@ public class ParticipantServer implements Runnable {
                     socketWrapper.listeningPort = parsedMessage.get(0);
                 }
                 System.out.println("RECEIVED VOTES FROM "+socketWrapper.listeningPort+": " + parsedMessage);
-                this.participantWrapper.parseVotes(parsedMessage);
+                this.participantWrapper.parseVotes(parsedMessage,socketWrapper.listeningPort);
                 break;
             default:
                 System.out.println("DEFAULT ON PARTICIPANT SERVER REACHED WITH:  " + parsedMessage);

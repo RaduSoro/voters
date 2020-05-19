@@ -10,7 +10,6 @@ public class ParticipantWrapper {
     public ArrayList<ParticipantClient> participantClients;
     public int listeningPort;
     public int timeout;
-
     public ParticipantServer participantServer;
 
     public ParticipantWrapper(HashMap<String, String> properties) {
@@ -28,7 +27,7 @@ public class ParticipantWrapper {
         coordinatorClient = new CoordinatorClient(properties,this);
     }
 
-    public void parseVotes (ArrayList<String> vote){
+    public void parseVotes (ArrayList<String> vote, String port){
         while (!vote.isEmpty()){
             this.votes.put(vote.get(0),vote.get(1));
             vote.remove(0);
@@ -36,15 +35,14 @@ public class ParticipantWrapper {
         }
     }
 
-    public void initiateInfrastructure() {
-//        System.out.println("Map properties when setting up the infrastructure: ");
-//        properties.forEach((k,v) -> System.out.println("Key: " + k + " Value: "+v));
         //no of participants for the max connections allowed on the participant server
+    public void initiateInfrastructure() {
         properties.put(Constants.PARTICIPANTS, String.valueOf(participantPorts.size()));
         //makes new server
         participantServer = new ParticipantServer(this.properties,this);
         //create clients to connect to the other participants in order to send messages to them
         for (String port : participantPorts) {
+//            votes.put(port,"");
             ParticipantClient participantClient = new ParticipantClient(port,this);
             participantClients.add(participantClient);
         }
@@ -65,8 +63,11 @@ public class ParticipantWrapper {
     }
 
     public String pickRandomVote (ArrayList<String> vote){
-        int voteNumber = ThreadLocalRandom.current().nextInt(0,votingOptions.size());
-        return vote.get(voteNumber);
+        if (listeningPort%2 == 0) return "A";
+        else return "C";
+
+//        int voteNumber = ThreadLocalRandom.current().nextInt(0,votingOptions.size());
+//        return vote.get(voteNumber);
     }
 
     //Receives an Arraylist of the votes e.g [A,A,B,C,B]

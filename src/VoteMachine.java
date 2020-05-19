@@ -23,10 +23,10 @@ public class VoteMachine {
                 previousRoundVotes.put(String.valueOf(participantWrapper.listeningPort),vote);
                 participantWrapper.votes.put(String.valueOf(participantWrapper.listeningPort),vote);
                 //initializate the other ports with the null vote
-                participantWrapper.participantPorts.forEach(port -> {
-                    previousRoundVotes.put(port,"");
-                    participantWrapper.votes.put(port,"");
-                });
+//                participantWrapper.participantPorts.forEach(port -> {
+//                    previousRoundVotes.put(port,"");
+//                    participantWrapper.votes.put(port,"");
+//                });
                 //send the respective vote to the other participants
                 participantWrapper.sendVoteToOtherParticipants(Constants.VOTE + " "+ participantWrapper.listeningPort + " " + vote);
                 //do the rest of the voting rounds based on the timeout (N+1 ROUNDS)

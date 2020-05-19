@@ -3,7 +3,6 @@ import java.io.ObjectOutputStream;
 import java.net.Socket;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.HashMap;
 
 public class ParticipantClient implements Runnable{
     private int participantServerPort;
@@ -28,7 +27,6 @@ public class ParticipantClient implements Runnable{
             objectOutputStream = new ObjectOutputStream(socket.getOutputStream());
             objectOutputStream.flush();
             objectInputStream = new ObjectInputStream(socket.getInputStream());
-            System.out.println("CONNECTED TO PARTICIPANT THAT'S LITESNING ON PORT : " + this.participantServerPort);
         } catch (Exception e) {
             System.out.println("Couldnt connect to server...");
 

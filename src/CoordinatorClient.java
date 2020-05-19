@@ -33,9 +33,7 @@ public class CoordinatorClient implements Runnable {
                 objectInputStream = new ObjectInputStream(socket.getInputStream());
                 foundHost = true;
                 objectOutputStream.writeObject(Constants.MSG_JOIN + " " + this.listeningPort);
-                System.out.println("Sent message to coordinator : " + Constants.MSG_JOIN + " " + this.listeningPort);
                 objectOutputStream.flush();
-                System.out.println("CONNECTED TO Coordinator");
             } catch (Exception e) {
                 System.out.println("Couldnt connect to server...");
                 foundHost = false;
@@ -75,7 +73,6 @@ public class CoordinatorClient implements Runnable {
         String header = parsedMessage.get(0);
         switch (header){
             case Constants.MSG_VOTE_OPTIONS:
-                System.out.println("Received voting options, preparing voting infrastructure");
                 //remove the header
                 parsedMessage.remove(0);
                 participantWrapper.votingOptions.addAll(parsedMessage);
@@ -83,7 +80,6 @@ public class CoordinatorClient implements Runnable {
                 break;
             case Constants.MSG_DETAILS:
                 parsedMessage.remove(0);
-                System.out.println("Received " + Constants.MSG_DETAILS + " with " +parsedMessage);
                 participantWrapper.participantPorts.addAll(parsedMessage);
                 break;
             default:
