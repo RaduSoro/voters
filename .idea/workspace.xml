@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="5e28f5d8-e356-4677-847a-7fb24ff22a40" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectId" id="1c3PO4rZli07U6JXxQwI8kDm4im" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../DISTRIBUTED SYSTESMS/voters" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.2" />
+  </component>
+  <component name="RunManager" selected="Compound.Run Vote">
+    <configuration name="mainCoordinator" type="Application" factoryName="Application" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="mainCoordinator" />
+      <module name="betterDistributed" />
+      <option name="PROGRAM_PARAMETERS" value="12345 12344 4 500 A B C D" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="mainParticipant52341" type="Application" factoryName="Application" singleton="false">
+      <option name="MAIN_CLASS_NAME" value="mainParticipant" />
+      <module name="betterDistributed" />
+      <option name="PROGRAM_PARAMETERS" value="12345 12344 52341 500" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="mainParticipant52342" type="Application" factoryName="Application" singleton="false">
+      <option name="MAIN_CLASS_NAME" value="mainParticipant" />
+      <module name="betterDistributed" />
+      <option name="PROGRAM_PARAMETERS" value="12345 12344 52342 500" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="mainParticipant52343" type="Application" factoryName="Application" singleton="false">
+      <option name="MAIN_CLASS_NAME" value="mainParticipant" />
+      <module name="betterDistributed" />
+      <option name="PROGRAM_PARAMETERS" value="12345 12344 52343 500" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="mainParticipant52344" type="Application" factoryName="Application" singleton="false">
+      <option name="MAIN_CLASS_NAME" value="mainParticipant" />
+      <module name="betterDistributed" />
+      <option name="PROGRAM_PARAMETERS" value="12345 12344 52344 500" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Run Vote" type="CompoundRunConfigurationType">
+      <toRun name="mainCoordinator" type="Application" />
+      <toRun name="mainParticipant52342" type="Application" />
+      <toRun name="mainParticipant52341" type="Application" />
+      <toRun name="mainParticipant52343" type="Application" />
+      <toRun name="mainParticipant52344" type="Application" />
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="CompoundRunConfigurationType">
+      <toRun name="mainCoordinator" type="Application" />
+      <toRun name="mainParticipant52342" type="Application" />
+      <toRun name="mainParticipant52341" type="Application" />
+      <toRun name="mainParticipant52343" type="Application" />
+      <toRun name="mainParticipant52344" type="Application" />
+      <method v="2" />
+    </configuration>
+    <configuration name="run.sh" type="ShConfigurationType" temporary="true">
+      <option name="SCRIPT_PATH" value="$PROJECT_DIR$/src/run.sh" />
+      <option name="SCRIPT_OPTIONS" value="" />
+      <option name="SCRIPT_WORKING_DIRECTORY" value="$PROJECT_DIR$/src" />
+      <option name="INTERPRETER_PATH" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="Application.mainCoordinator" />
+      <item itemvalue="Application.mainParticipant52341" />
+      <item itemvalue="Application.mainParticipant52342" />
+      <item itemvalue="Application.mainParticipant52343" />
+      <item itemvalue="Application.mainParticipant52344" />
+      <item itemvalue="Compound.Run Vote" />
+      <item itemvalue="Shell Script.run.sh" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Shell Script.run.sh" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="5e28f5d8-e356-4677-847a-7fb24ff22a40" name="Default Changelist" comment="" />
+      <created>1589754268526</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1589754268526</updated>
+      <workItem from="1589754271383" duration="10180000" />
+      <workItem from="1589886883487" duration="11841000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="574" y="358" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1589902187304">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state x="-1346" y="358" key="#com.intellij.execution.impl.EditConfigurationsDialog/1920.0.1920.1050/0.0.1920.1050/-1920.0.1920.1050@-1920.0.1920.1050" timestamp="1589760260298" />
+    <state x="574" y="358" key="#com.intellij.execution.impl.EditConfigurationsDialog/1920.0.1920.1050/0.0.1920.1050/-1920.0.1920.1050@0.0.1920.1050" timestamp="1589902187304" />
+    <state x="-1230" y="271" key="#com.intellij.refactoring.typeMigration.ui.FailedConversionsDialog" timestamp="1589889436029">
+      <screen x="-1920" y="0" width="1920" height="1050" />
+    </state>
+    <state x="-1230" y="271" key="#com.intellij.refactoring.typeMigration.ui.FailedConversionsDialog/1920.0.1920.1050/0.0.1920.1050/-1920.0.1920.1050@0.0.1920.1050" timestamp="1589889436029" />
+    <state x="740" y="279" key="FileChooserDialogImpl" timestamp="1589892605405">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state x="-1180" y="279" key="FileChooserDialogImpl/-1920.0.1920.1050/0.0.1920.1050/1920.0.1920.1050@-1920.0.1920.1050" timestamp="1589807670029" />
+    <state x="740" y="279" key="FileChooserDialogImpl/-1920.0.1920.1050/0.0.1920.1050/1920.0.1920.1050@0.0.1920.1050" timestamp="1589818043995" />
+    <state x="740" y="279" key="FileChooserDialogImpl/1920.0.1920.1050/0.0.1920.1050/-1920.0.1920.1050@0.0.1920.1050" timestamp="1589892605405" />
+    <state width="1877" height="264" key="GridCell.Tab.0.bottom" timestamp="1589907678185">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state width="1877" height="264" key="GridCell.Tab.0.bottom/1920.0.1920.1050/0.0.1920.1050/-1920.0.1920.1050@-1920.0.1920.1050" timestamp="1589760281928" />
+    <state width="1877" height="264" key="GridCell.Tab.0.bottom/1920.0.1920.1050/0.0.1920.1050/-1920.0.1920.1050@0.0.1920.1050" timestamp="1589907678185" />
+    <state width="1877" height="264" key="GridCell.Tab.0.center" timestamp="1589907678185">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state width="1877" height="264" key="GridCell.Tab.0.center/1920.0.1920.1050/0.0.1920.1050/-1920.0.1920.1050@-1920.0.1920.1050" timestamp="1589760281928" />
+    <state width="1877" height="264" key="GridCell.Tab.0.center/1920.0.1920.1050/0.0.1920.1050/-1920.0.1920.1050@0.0.1920.1050" timestamp="1589907678185" />
+    <state width="1877" height="264" key="GridCell.Tab.0.left" timestamp="1589907678185">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state width="1877" height="264" key="GridCell.Tab.0.left/1920.0.1920.1050/0.0.1920.1050/-1920.0.1920.1050@-1920.0.1920.1050" timestamp="1589760281928" />
+    <state width="1877" height="264" key="GridCell.Tab.0.left/1920.0.1920.1050/0.0.1920.1050/-1920.0.1920.1050@0.0.1920.1050" timestamp="1589907678185" />
+    <state width="1877" height="264" key="GridCell.Tab.0.right" timestamp="1589907678185">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state width="1877" height="264" key="GridCell.Tab.0.right/1920.0.1920.1050/0.0.1920.1050/-1920.0.1920.1050@-1920.0.1920.1050" timestamp="1589760281928" />
+    <state width="1877" height="264" key="GridCell.Tab.0.right/1920.0.1920.1050/0.0.1920.1050/-1920.0.1920.1050@0.0.1920.1050" timestamp="1589907678185" />
+    <state width="1877" height="330" key="GridCell.Tab.1.bottom" timestamp="1589889458326">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state width="1877" height="330" key="GridCell.Tab.1.bottom/1920.0.1920.1050/0.0.1920.1050/-1920.0.1920.1050@0.0.1920.1050" timestamp="1589889458326" />
+    <state width="1877" height="330" key="GridCell.Tab.1.center" timestamp="1589889458326">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state width="1877" height="330" key="GridCell.Tab.1.center/1920.0.1920.1050/0.0.1920.1050/-1920.0.1920.1050@0.0.1920.1050" timestamp="1589889458326" />
+    <state width="1877" height="330" key="GridCell.Tab.1.left" timestamp="1589889458326">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state width="1877" height="330" key="GridCell.Tab.1.left/1920.0.1920.1050/0.0.1920.1050/-1920.0.1920.1050@0.0.1920.1050" timestamp="1589889458326" />
+    <state width="1877" height="330" key="GridCell.Tab.1.right" timestamp="1589889458326">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state width="1877" height="330" key="GridCell.Tab.1.right/1920.0.1920.1050/0.0.1920.1050/-1920.0.1920.1050@0.0.1920.1050" timestamp="1589889458326" />
+    <state x="-1480" y="99" key="SettingsEditor" timestamp="1589754835397">
+      <screen x="-1920" y="0" width="1920" height="1050" />
+    </state>
+    <state x="-1480" y="99" key="SettingsEditor/1920.0.1920.1050/0.0.1920.1050/-1920.0.1920.1050@-1920.0.1920.1050" timestamp="1589754835397" />
+    <state x="-1763" y="-25" width="1424" height="1033" maximized="true" key="dock-window-1" timestamp="1589888514944">
+      <screen x="-1920" y="0" width="1920" height="1050" />
+    </state>
+    <state x="260" y="0" width="1424" height="1033" key="dock-window-1/-1920.0.1920.1050/0.0.1920.1050/1920.0.1920.1050@-1920.0.1920.1050" timestamp="1589796054228" />
+    <state x="263" y="-23" width="1424" height="1033" maximized="true" key="dock-window-1/1920.0.1920.1050/0.0.1920.1050/-1920.0.1920.1050@-1920.0.1920.1050" timestamp="1589755852051" />
+    <state x="-1763" y="-25" width="1424" height="1033" maximized="true" key="dock-window-1/1920.0.1920.1050/0.0.1920.1050/-1920.0.1920.1050@0.0.1920.1050" timestamp="1589888514944" />
+    <state x="646" y="241" width="627" height="568" key="find.popup" timestamp="1589895376848">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state x="-1274" y="241" width="627" height="568" key="find.popup/1920.0.1920.1050/0.0.1920.1050/-1920.0.1920.1050@-1920.0.1920.1050" timestamp="1589759663649" />
+    <state x="646" y="241" width="627" height="568" key="find.popup/1920.0.1920.1050/0.0.1920.1050/-1920.0.1920.1050@0.0.1920.1050" timestamp="1589895376848" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/ParticipantWrapper.java</url>
+          <line>39</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+</project>
