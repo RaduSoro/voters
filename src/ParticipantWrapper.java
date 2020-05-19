@@ -6,11 +6,15 @@ public class ParticipantWrapper {
     public CoordinatorClient coordinatorClient;
     public ArrayList<String> participantPorts;
     public ArrayList<String> votingOptions;
-    public HashMap<String,String> votes;
+    private HashMap<String,String> votes;
     public ArrayList<ParticipantClient> participantClients;
     public int listeningPort;
     public int timeout;
     public ParticipantServer participantServer;
+
+    public synchronized HashMap<String, String> getVotes() {
+        return votes;
+    }
 
     public ParticipantWrapper(HashMap<String, String> properties) {
         this.properties = properties;
@@ -27,9 +31,9 @@ public class ParticipantWrapper {
         coordinatorClient = new CoordinatorClient(properties,this);
     }
 
-    public void parseVotes (ArrayList<String> vote, String port){
+    public synchronized void parseVotes (ArrayList<String> vote, String port){
         while (!vote.isEmpty()){
-            this.votes.put(vote.get(0),vote.get(1));
+            this.getVotes().put(vote.get(0),vote.get(1));
             vote.remove(0);
             vote.remove(0);
         }
@@ -63,11 +67,11 @@ public class ParticipantWrapper {
     }
 
     public String pickRandomVote (ArrayList<String> vote){
-        if (listeningPort%2 == 0) return "A";
-        else return "C";
+//        if (listeningPort%2 == 0) return "C";
+//        else return "A";
 
-//        int voteNumber = ThreadLocalRandom.current().nextInt(0,votingOptions.size());
-//        return vote.get(voteNumber);
+        int voteNumber = ThreadLocalRandom.current().nextInt(0,votingOptions.size());
+        return vote.get(voteNumber);
     }
 
     //Receives an Arraylist of the votes e.g [A,A,B,C,B]

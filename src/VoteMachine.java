@@ -21,12 +21,12 @@ public class VoteMachine {
                 System.out.println("MY FIRST VOTE IS: " + vote);
                 //put the vote in the participant wrapper and the thread
                 previousRoundVotes.put(String.valueOf(participantWrapper.listeningPort),vote);
-                participantWrapper.votes.put(String.valueOf(participantWrapper.listeningPort),vote);
+                participantWrapper.getVotes().put(String.valueOf(participantWrapper.listeningPort),vote);
                 //initializate the other ports with the null vote
-//                participantWrapper.participantPorts.forEach(port -> {
-//                    previousRoundVotes.put(port,"");
-//                    participantWrapper.votes.put(port,"");
-//                });
+                participantWrapper.participantPorts.forEach(port -> {
+                    previousRoundVotes.put(port,"");
+                    participantWrapper.getVotes().put(port,"");
+                });
                 //send the respective vote to the other participants
                 participantWrapper.sendVoteToOtherParticipants(Constants.VOTE + " "+ participantWrapper.listeningPort + " " + vote);
                 //do the rest of the voting rounds based on the timeout (N+1 ROUNDS)
@@ -43,13 +43,13 @@ public class VoteMachine {
                         e.printStackTrace();
                     }
                     //have the participant pick a new vote for itself considering the new votes
-                    System.out.println("CURRENT VOTES IN THE ROUND "+ i +" ARE " + participantWrapper.votes);
+                    System.out.println("CURRENT VOTES IN THE ROUND "+ i +" ARE " + participantWrapper.getVotes());
                     System.out.println("Previous round votes" +" ARE " + previousRoundVotes);
 
                     String currentVote = participantWrapper.pickVoteOutcome();
                     System.out.println("CURRENT ROUND "+i+" OUTCOME IS " +currentVote );
                     //update the vote in the map
-                    participantWrapper.votes.replace(String.valueOf(participantWrapper.listeningPort),currentVote);
+                    participantWrapper.getVotes().replace(String.valueOf(participantWrapper.listeningPort),currentVote);
                     //check the votes inside the participant wrapper which are updated by the server make the difference and broadcast them further
                     HashMap<String,String> newVoteMap = checkVotingDifference();
                     //create the message to send to the oters
@@ -68,7 +68,7 @@ public class VoteMachine {
     }
     public HashMap<String,String> checkVotingDifference(){
         HashMap<String,String> newVoteMap = new HashMap<>();
-        participantWrapper.votes.forEach((key,value)->{
+        participantWrapper.getVotes().forEach((key,value)->{
             //if the value from the thread hashmap is different from the one in the participant add it to the newVoteMap
             if (!value.equals(previousRoundVotes.get(key))){
                 newVoteMap.put(key,value);
