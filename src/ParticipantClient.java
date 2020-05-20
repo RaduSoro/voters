@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 public class ParticipantClient implements Runnable{
-    private int participantServerPort;
+    public int participantServerPort;
     private int timeout;
     private Thread thread;
     private Socket socket;
@@ -56,7 +56,6 @@ public class ParticipantClient implements Runnable{
             this.objectOutputStream.writeObject(object);
             this.objectOutputStream.flush();
         } catch (Exception e) {
-            e.printStackTrace();
         }
     }
 

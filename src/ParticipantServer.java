@@ -66,7 +66,7 @@ public class ParticipantServer implements Runnable {
             maxParticipants--;
             Thread.sleep(100);
         } catch (Exception e) {
-            e.printStackTrace();
+            maxParticipants--;
         }
     }
     public void close(){
@@ -90,7 +90,7 @@ public class ParticipantServer implements Runnable {
                 Object receivedObject = socketWrapper.objectInputStream.readObject();
                 handleMessage((String) receivedObject,socketWrapper);
             } catch (Exception e) {
-                e.printStackTrace();
+                processNotEnded = false;
             }
         }
     }

@@ -47,8 +47,8 @@ public class ParticipantWrapper {
         }
     }
 
-    public void removeParticipant (){
-
+    public synchronized void removeParticipant (ParticipantClient participantClient){
+        participantClients.remove(participantClient);
     }
 
         //no of participants for the max connections allowed on the participant server

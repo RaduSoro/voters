@@ -49,6 +49,7 @@ public class CoordinatorServer implements Runnable{
                 @Override
                 public void run() {
                     SocketWrapper socketWrapper = new SocketWrapper(socket);
+                    socketWrapper.thread = thread;
                     clientList.add(socketWrapper);
                     //infinte read object function
                     readObject(socketWrapper);
@@ -108,7 +109,12 @@ public class CoordinatorServer implements Runnable{
                 handleMessage((String) receivedObject,socketWrapper);
             } catch (Exception e) {
                 if (!outcome){
-                    System.out.println(socketWrapper.listeningPort + "has crashed");
+                    System.out.println(socketWrapper.listeningPort + " has crashed");
+                    try {
+                        socketWrapper.socket.close();
+                    } catch (IOException ex) {
+                        ex.printStackTrace();
+                    }
                 }
             }
         }
