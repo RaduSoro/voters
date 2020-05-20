@@ -14,6 +14,7 @@ public class CoordinatorServer implements Runnable{
     private int loggerPort;
     private int maxParticipants;
     private int timeout;
+    public boolean outcome = false;
     private ServerSocket serverSocket;
     private HashMap<String, String> properties;
     private ArrayList<SocketWrapper> clientList;
@@ -42,7 +43,7 @@ public class CoordinatorServer implements Runnable{
         } catch (IOException e) {
             e.printStackTrace();
         }
-        while (maxParticipants!=0) try {
+        while (maxParticipants!=0 && !outcome) try {
             socket = serverSocket.accept();
             thread = new Thread(){
                 @Override
@@ -101,12 +102,14 @@ public class CoordinatorServer implements Runnable{
     }
 
     private void readObject(SocketWrapper socketWrapper) {
-        while (!socketWrapper.socket.isClosed()){
+        while (!socketWrapper.socket.isClosed() && !outcome){
             try {
                 Object receivedObject = socketWrapper.objectInputStream.readObject();
                 handleMessage((String) receivedObject,socketWrapper);
             } catch (Exception e) {
-                e.printStackTrace();
+                if (!outcome){
+                    System.out.println(socketWrapper.listeningPort + "has crashed");
+                }
             }
         }
     }
@@ -138,6 +141,16 @@ public class CoordinatorServer implements Runnable{
                 break;
             case Constants.MSG_VOTE:
                 System.out.println("VOTE REACHED WITH" + parsedMessage);
+                break;
+            case Constants.MSG_OUTCOME:
+                outcome = true;
+                try {
+                    serverSocket.close();
+                    thread.interrupt();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+                System.out.println(message);
                 break;
             default:
                 System.out.println("DEFAULT REACHED WITH  " + parsedMessage);

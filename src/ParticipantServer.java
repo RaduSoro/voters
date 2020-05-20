@@ -70,6 +70,11 @@ public class ParticipantServer implements Runnable {
         }
     }
     public void close(){
+        try {
+            this.serverSocket.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         clientList.forEach(socketWrapper -> {
             try {
                 socketWrapper.socket.close();
@@ -124,9 +129,6 @@ public class ParticipantServer implements Runnable {
                 }
                 System.out.println("RECEIVED VOTES FROM "+socketWrapper.listeningPort+": " + parsedMessage);
                 this.participantWrapper.parseVotes(parsedMessage,socketWrapper.listeningPort);
-                break;
-            case Constants.MSG_OUTCOME:
-                    System.out.println(parsedMessage);
                 break;
             default:
                 System.out.println("DEFAULT ON PARTICIPANT SERVER REACHED WITH:  " + parsedMessage);

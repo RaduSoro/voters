@@ -59,7 +59,7 @@ public class VoteMachine {
         }
         String outcome = Constants.MSG_OUTCOME + " " + participantWrapper.pickVoteOutcome() + " " + participantWrapper.participantPorts.toString() +" "+ participantWrapper.listeningPort;
         participantWrapper.coordinatorClient.sendObject(outcome);
-//        participantWrapper.endProcess();
+        participantWrapper.endProcess();
     }
     public HashMap<String,String> checkVotingDifference(){
         HashMap<String,String> newVoteMap = new HashMap<>();

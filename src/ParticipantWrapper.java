@@ -1,3 +1,4 @@
+import java.io.IOException;
 import java.util.*;
 import java.util.concurrent.ThreadLocalRandom;
 
@@ -66,7 +67,11 @@ public class ParticipantWrapper {
 
     public void endProcess(){
         participantServer.close();
-        coordinatorClient.foundHost = false;
+        try {
+            coordinatorClient.socket.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     public void startVoting(){

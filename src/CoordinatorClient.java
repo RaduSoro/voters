@@ -11,7 +11,7 @@ public class CoordinatorClient implements Runnable {
     public int listeningPort;
     public boolean foundHost = false;
     private Thread thread;
-    private Socket socket;
+    public Socket socket;
     private ObjectOutputStream objectOutputStream;
     private ObjectInputStream objectInputStream;
     private ParticipantWrapper participantWrapper;
@@ -54,7 +54,6 @@ public class CoordinatorClient implements Runnable {
                 handle((String) object);
             } catch (Exception e){
                 foundHost=false;
-                e.printStackTrace();
             }
         }
     }
