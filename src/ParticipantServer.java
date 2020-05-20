@@ -48,6 +48,7 @@ public class ParticipantServer implements Runnable {
                 @Override
                 public void run() {
                     SocketWrapper socketWrapper = new SocketWrapper(socket);
+                    socketWrapper.thread = thread;
                     clientList.add(socketWrapper);
                     //infinte read object function
                     readObject(socketWrapper);
@@ -115,6 +116,11 @@ public class ParticipantServer implements Runnable {
                 if (participantCounter< participantWrapper.participantPorts.size()){
                     participantCounter++;
                     socketWrapper.listeningPort = parsedMessage.get(0);
+                }
+                try {
+                    socketWrapper.thread.sleep(timeout);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
                 }
                 System.out.println("RECEIVED VOTES FROM "+socketWrapper.listeningPort+": " + parsedMessage);
                 this.participantWrapper.parseVotes(parsedMessage,socketWrapper.listeningPort);

@@ -33,9 +33,16 @@ public class ParticipantWrapper {
 
     public synchronized void parseVotes (ArrayList<String> vote, String port){
         while (!vote.isEmpty()){
-            this.getVotes().put(vote.get(0),vote.get(1));
-            vote.remove(0);
-            vote.remove(0);
+            String votePort = vote.get(0);
+            String voteLetter = vote.get(1);
+            if (voteLetter!= ""){
+                this.getVotes().put(votePort,voteLetter);
+                vote.remove(0);
+                vote.remove(0);
+            }else{
+                vote.remove(0);
+                vote.remove(0);
+            }
         }
     }
 

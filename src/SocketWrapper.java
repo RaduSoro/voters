@@ -6,6 +6,7 @@ import java.net.Socket;
 public class SocketWrapper {
     public ObjectInputStream objectInputStream;
     public ObjectOutputStream objectOutputStream;
+    public Thread thread;
     public Socket socket;
     public String listeningPort;
     public SocketWrapper(Socket socket){
