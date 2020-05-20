@@ -46,6 +46,10 @@ public class ParticipantWrapper {
         }
     }
 
+    public void removeParticipant (){
+
+    }
+
         //no of participants for the max connections allowed on the participant server
     public void initiateInfrastructure() {
         properties.put(Constants.PARTICIPANTS, String.valueOf(participantPorts.size()));

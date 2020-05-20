@@ -7,7 +7,7 @@ public class Constants {
 
     public final static String PARTICIPANT_PORT = "PARTICIPANT_PORT";
 
-    public final static String OPTIONS = "OPTIONS";
+    public final static String MSG_OUTCOME = "OUTCOME";
     public final static String VOTE = "VOTE";
 
     public final static String MSG_JOIN = "JOIN";

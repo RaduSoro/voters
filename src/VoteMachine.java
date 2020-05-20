@@ -57,11 +57,9 @@ public class VoteMachine {
             }
             participantWrapper.sendVoteToOtherParticipants(message);
         }
-        participantWrapper.coordinatorClient.sendObject("OUCOME DE LA PARTICIPANT " + participantWrapper.listeningPort +" ESTE "+ participantWrapper.pickVoteOutcome());
-//                participantWrapper.endProcess();
-
-
-
+        String outcome = Constants.MSG_OUTCOME + " " + participantWrapper.pickVoteOutcome() + " " + participantWrapper.participantPorts.toString() +" "+ participantWrapper.listeningPort;
+        participantWrapper.coordinatorClient.sendObject(outcome);
+//        participantWrapper.endProcess();
     }
     public HashMap<String,String> checkVotingDifference(){
         HashMap<String,String> newVoteMap = new HashMap<>();

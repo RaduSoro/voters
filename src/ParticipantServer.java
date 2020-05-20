@@ -108,10 +108,10 @@ public class ParticipantServer implements Runnable {
     private void handleMessage(String message, SocketWrapper socketWrapper) {
         ArrayList<String> parsedMessage = new ArrayList<>(Arrays.asList(message.split(" ")));
         String header = parsedMessage.get(0);
-        //remove the header so we can work with the proper message
-        parsedMessage.remove(0);
         switch (header){
             case Constants.VOTE:
+                //remove the header so we can work with the proper message
+                parsedMessage.remove(0);
                 //set the listening port for the socket wrapper so we know which participant sent the message
                 if (participantCounter< participantWrapper.participantPorts.size()){
                     participantCounter++;
@@ -124,6 +124,9 @@ public class ParticipantServer implements Runnable {
                 }
                 System.out.println("RECEIVED VOTES FROM "+socketWrapper.listeningPort+": " + parsedMessage);
                 this.participantWrapper.parseVotes(parsedMessage,socketWrapper.listeningPort);
+                break;
+            case Constants.MSG_OUTCOME:
+                    System.out.println(parsedMessage);
                 break;
             default:
                 System.out.println("DEFAULT ON PARTICIPANT SERVER REACHED WITH:  " + parsedMessage);
