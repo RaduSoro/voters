@@ -127,7 +127,7 @@ public class ParticipantServer implements Runnable {
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
-                System.out.println("RECEIVED VOTES FROM "+socketWrapper.listeningPort+": " + parsedMessage);
+//                System.out.println("RECEIVED VOTES FROM "+socketWrapper.listeningPort+": " + parsedMessage);
                 this.participantWrapper.parseVotes(parsedMessage,socketWrapper.listeningPort);
                 break;
             default:
