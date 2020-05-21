@@ -1,3 +1,4 @@
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -9,6 +10,15 @@ public class CoordinatorWrapper {
     public CoordinatorWrapper(HashMap<String, String> properties, ArrayList<String> votingOptions) {
         this.properties = properties;
         this.votingOptions = votingOptions;
+        int loggerPort = Integer.parseInt(properties.get(Constants.LOGGER_PORT));
+        int listeningPort = Integer.parseInt(properties.get(Constants.PORT));
+        int timeout = Integer.parseInt(properties.get(Constants.TIMEOUT));
+        UDPLoggerClient udpLoggerClient = new UDPLoggerClient(loggerPort,listeningPort,timeout);
+        try {
+            udpLoggerClient.logToServer("HELLO");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         startCoordinatorServer();
     }
 
