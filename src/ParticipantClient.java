@@ -61,7 +61,6 @@ public class ParticipantClient implements Runnable{
                 participantWrapper.logger.participantCrashed(this.participantServerPort);
                 participantWrapper.crashedPorts.add(String.valueOf(this.participantServerPort));
             }
-            e.printStackTrace();
         }
     }
 

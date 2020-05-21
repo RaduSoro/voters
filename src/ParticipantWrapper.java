@@ -46,8 +46,20 @@ public class ParticipantWrapper {
                     rawVotes.add(voteObj);
                     vote.remove(0);
                     vote.remove(0);
-                } else {
+                } else if(!crashedPorts.contains(port) && port.equals(votePort)){
                     this.getVotes().put(votePort,voteLetter);
+                    voteObj = new Vote(Integer.parseInt(vote.get(0)),vote.get(1));
+                    rawVotes.add(voteObj);
+                    vote.remove(0);
+                    vote.remove(0);
+                } else if (crashedPorts.contains(votePort)){
+                    this.getVotes().put(votePort,voteLetter);
+                    voteObj = new Vote(Integer.parseInt(vote.get(0)),vote.get(1));
+                    rawVotes.add(voteObj);
+                    vote.remove(0);
+                    vote.remove(0);
+                }
+                else {
                     voteObj = new Vote(Integer.parseInt(vote.get(0)),vote.get(1));
                     rawVotes.add(voteObj);
                     vote.remove(0);
@@ -62,7 +74,6 @@ public class ParticipantWrapper {
         }
         logger.votesReceived(Integer.parseInt(port),rawVotes);
     }
-
     public synchronized void removeParticipant (ParticipantClient participantClient){
         participantClients.remove(participantClient);
     }

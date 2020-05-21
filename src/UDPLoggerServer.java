@@ -53,10 +53,10 @@ public class UDPLoggerServer {
         String header = tokens.get(0);
         switch (header){
             case "HELLO":
-                System.out.println(tokens);
+                System.out.println(data);
                 break;
             default:
-                System.out.println("RECEIVED MSG ON DEFAULT " + tokens);
+                System.out.println("RECEIVED MSG ON DEFAULT " + data);
                 break;
         }
         try{
