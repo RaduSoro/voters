@@ -56,13 +56,15 @@ public class UDPLoggerClient {
                 byte[] receive = new byte[65535];
                 DatagramPacket DpReceive = new DatagramPacket(receive, receive.length);
                 ds.receive(DpReceive);
-                System.out.println("Client received data:-" + data(receive));
+//                System.out.println("Client received data:-" + data(receive));
                 receivedAck = true;
             } catch (SocketException e) {
                 counter++;
             }
         }
-		// YOUR IMPLEMENTATION HERE!!
+		if (counter == 3 && !receivedAck) {
+            throw new IOException("LOGGER SERVER FAILED TO ACK MESSAGE: " + message);
+        }
 	}
 
     public static StringBuilder data(byte[] a)

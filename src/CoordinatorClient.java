@@ -4,6 +4,7 @@ import java.net.Socket;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
+import java.util.List;
 
 public class CoordinatorClient implements Runnable {
     private int coordinatorPort;
@@ -34,6 +35,7 @@ public class CoordinatorClient implements Runnable {
                 foundHost = true;
                 objectOutputStream.writeObject(Constants.MSG_JOIN + " " + this.listeningPort);
                 objectOutputStream.flush();
+                participantWrapper.logger.joinSent(coordinatorPort);
             } catch (Exception e) {
                 System.out.println("Couldnt connect to server...");
                 foundHost = false;
@@ -62,12 +64,14 @@ public class CoordinatorClient implements Runnable {
         try {
             this.objectOutputStream.writeObject(object);
             this.objectOutputStream.flush();
+            participantWrapper.logger.messageSent(coordinatorPort,(String) object);
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
     public void handle(String message){
+        participantWrapper.logger.messageReceived(coordinatorPort,message);
         ArrayList<String> parsedMessage = new ArrayList<>(Arrays.asList(message.split(" ")));
         String header = parsedMessage.get(0);
         switch (header){
@@ -75,11 +79,17 @@ public class CoordinatorClient implements Runnable {
                 //remove the header
                 parsedMessage.remove(0);
                 participantWrapper.votingOptions.addAll(parsedMessage);
+                List<String> optionList = new ArrayList<>();
+                parsedMessage.forEach(option -> optionList.add(option));
+                participantWrapper.logger.voteOptionsReceived(optionList);
                 participantWrapper.initiateInfrastructure();
                 break;
             case Constants.MSG_DETAILS:
                 parsedMessage.remove(0);
                 participantWrapper.participantPorts.addAll(parsedMessage);
+                List<Integer> portsList = new ArrayList<>();
+                parsedMessage.forEach(port -> portsList.add(Integer.valueOf(port)));
+                participantWrapper.logger.detailsReceived(portsList);
                 break;
             default:
                 System.out.println(parsedMessage);

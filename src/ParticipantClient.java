@@ -24,12 +24,12 @@ public class ParticipantClient implements Runnable{
     public void connectToCoordinator() {
         try {
             socket = new Socket("127.0.0.1", participantServerPort);
+            participantWrapper.logger.connectionEstablished(participantServerPort);
             objectOutputStream = new ObjectOutputStream(socket.getOutputStream());
             objectOutputStream.flush();
             objectInputStream = new ObjectInputStream(socket.getInputStream());
         } catch (Exception e) {
-            System.out.println("Couldnt connect to server...");
-
+            System.out.println("Couldnt connect to participant server");
         }
         thread = new Thread(this, "ParticipantClient " + participantServerPort);
         thread.start();
@@ -55,11 +55,18 @@ public class ParticipantClient implements Runnable{
         try {
             this.objectOutputStream.writeObject(object);
             this.objectOutputStream.flush();
+            participantWrapper.logger.messageSent(participantServerPort,(String) object);
         } catch (Exception e) {
+            if (!participantWrapper.crashedPorts.contains(String.valueOf(this.participantServerPort))){
+                participantWrapper.logger.participantCrashed(this.participantServerPort);
+                participantWrapper.crashedPorts.add(String.valueOf(this.participantServerPort));
+            }
+            e.printStackTrace();
         }
     }
 
     public void handle(String message){
+        participantWrapper.logger.messageReceived(participantServerPort,message);
         ArrayList<String> parsedMessage = new ArrayList<>(Arrays.asList(message.split(" ")));
         String header = parsedMessage.get(0);
         switch (header){

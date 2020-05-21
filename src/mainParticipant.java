@@ -1,3 +1,4 @@
+import java.io.IOException;
 import java.util.HashMap;
 
 public class mainParticipant {
@@ -9,6 +10,16 @@ public class mainParticipant {
         properties.put(Constants.PARTICIPANT_PORT, args[2]);
         properties.put(Constants.TIMEOUT, args[3]);
 
-        ParticipantWrapper participantWrapper = new ParticipantWrapper(properties);
+        int loggerPort = Integer.parseInt(properties.get(Constants.LOGGER_PORT));
+        int listeningPort = Integer.parseInt(properties.get(Constants.PARTICIPANT_PORT));
+        int timeout = Integer.parseInt(properties.get(Constants.TIMEOUT));
+        ParticipantLogger logger;
+        try {
+            ParticipantLogger.initLogger(loggerPort,listeningPort,timeout);
+        } catch (IOException e) {
+            System.out.println("GETTING LOGGER INSTANCE");
+        }
+            logger = ParticipantLogger.getLogger();
+        ParticipantWrapper participantWrapper = new ParticipantWrapper(properties, logger);
     }
 }

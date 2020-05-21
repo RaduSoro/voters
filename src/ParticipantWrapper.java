@@ -12,17 +12,19 @@ public class ParticipantWrapper {
     public int listeningPort;
     public int timeout;
     public ParticipantServer participantServer;
-
+    public ParticipantLogger logger;
+    ArrayList<String> crashedPorts = new ArrayList<>();
     public synchronized HashMap<String, String> getVotes() {
         return votes;
     }
 
-    public ParticipantWrapper(HashMap<String, String> properties) {
+    public ParticipantWrapper(HashMap<String, String> properties, ParticipantLogger logger) {
         this.properties = properties;
         this.votes = new HashMap<>();
         participantPorts = new ArrayList<>();
         participantClients = new ArrayList<>();
         votingOptions = new ArrayList<>();
+        this.logger = logger;
         this.listeningPort = Integer.parseInt(properties.get(Constants.PARTICIPANT_PORT));
         this.timeout = Integer.parseInt(properties.get(Constants.TIMEOUT));
         connectToCoordinator();
@@ -33,18 +35,32 @@ public class ParticipantWrapper {
     }
 
     public synchronized void parseVotes (ArrayList<String> vote, String port){
+        List<Vote> rawVotes = new ArrayList<>();
+        Vote voteObj  = null;
         while (!vote.isEmpty()){
             String votePort = vote.get(0);
             String voteLetter = vote.get(1);
             if (voteLetter!= ""){
-                this.getVotes().put(votePort,voteLetter);
-                vote.remove(0);
-                vote.remove(0);
+                if (votePort.equals(this.listeningPort)){
+                    voteObj = new Vote(Integer.parseInt(vote.get(0)),vote.get(1));
+                    rawVotes.add(voteObj);
+                    vote.remove(0);
+                    vote.remove(0);
+                } else {
+                    this.getVotes().put(votePort,voteLetter);
+                    voteObj = new Vote(Integer.parseInt(vote.get(0)),vote.get(1));
+                    rawVotes.add(voteObj);
+                    vote.remove(0);
+                    vote.remove(0);
+                }
             }else{
+                voteObj = new Vote(Integer.parseInt(vote.get(0)),vote.get(1));
+                rawVotes.add(voteObj);
                 vote.remove(0);
                 vote.remove(0);
             }
         }
+        logger.votesReceived(Integer.parseInt(port),rawVotes);
     }
 
     public synchronized void removeParticipant (ParticipantClient participantClient){
@@ -78,8 +94,11 @@ public class ParticipantWrapper {
         VoteMachine voteMachine = new VoteMachine(this);
     }
 
-    public void sendVoteToOtherParticipants(String vote){
-        participantClients.forEach(client -> client.sendObject(vote));
+    public void sendVoteToOtherParticipants(String vote, List<Vote> rawVotes){
+        participantClients.forEach(client -> {
+            client.sendObject(vote);
+            logger.votesSent(client.participantServerPort,rawVotes);
+        });
     }
 
     public String pickRandomVote (ArrayList<String> vote){

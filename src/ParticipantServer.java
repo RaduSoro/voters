@@ -4,6 +4,7 @@ import java.net.Socket;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
+import java.util.List;
 
 public class ParticipantServer implements Runnable {
 
@@ -43,7 +44,9 @@ public class ParticipantServer implements Runnable {
             e.printStackTrace();
         }
         while (maxParticipants!=0) try {
+            participantWrapper.logger.startedListening();
             socket = serverSocket.accept();
+            participantWrapper.logger.connectionAccepted(socket.getPort());
             thread = new Thread(){
                 @Override
                 public void run() {
@@ -100,6 +103,7 @@ public class ParticipantServer implements Runnable {
             try {
                 socketWrapper.objectOutputStream.writeObject(message);
                 socketWrapper.objectOutputStream.flush();
+                participantWrapper.logger.messageSent(Integer.parseInt(socketWrapper.listeningPort),message);
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -122,6 +126,7 @@ public class ParticipantServer implements Runnable {
                     participantCounter++;
                     socketWrapper.listeningPort = parsedMessage.get(0);
                 }
+                participantWrapper.logger.messageReceived(Integer.parseInt(socketWrapper.listeningPort),message);
                 try {
                     socketWrapper.thread.sleep(timeout);
                 } catch (InterruptedException e) {
@@ -131,6 +136,7 @@ public class ParticipantServer implements Runnable {
                 this.participantWrapper.parseVotes(parsedMessage,socketWrapper.listeningPort);
                 break;
             default:
+                participantWrapper.logger.messageReceived(Integer.parseInt(socketWrapper.listeningPort),message);
                 System.out.println("DEFAULT ON PARTICIPANT SERVER REACHED WITH:  " + parsedMessage);
                 break;
         }
