@@ -45,7 +45,8 @@ public class UDPLoggerClient {
 		boolean receivedAck = false;
         DatagramSocket ds = new DatagramSocket();
         InetAddress ip = InetAddress.getLocalHost();
-        byte[] bytes = message.getBytes();
+        String msgWithID = getProcessId()+" " + message;
+        byte[] bytes = msgWithID.getBytes();
         //BUF IS BYTE CONVERT THAT STRING TO BYTES
         DatagramPacket DpSend = new DatagramPacket(bytes, bytes.length, ip, loggerServerPort);
         while (counter<3 && !receivedAck){

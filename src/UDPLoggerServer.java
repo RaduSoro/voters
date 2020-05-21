@@ -1,12 +1,15 @@
 import java.io.IOException;
+import java.io.PrintStream;
 import java.net.*;
 import java.util.ArrayList;
 import java.util.Arrays;
 
 public class UDPLoggerServer {
     private static int port;
-    static DatagramSocket socket;
+    private static DatagramSocket socket;
+    private static PrintStream ps;
     public static void main(String[] args) throws IOException {
+        ps = new PrintStream("logger_server_" + System.currentTimeMillis() + ".log");
         port = Integer.parseInt(args[0]);
         {
             try {
@@ -51,14 +54,11 @@ public class UDPLoggerServer {
     public static void handle(String data, DatagramPacket receivedPacket){
         ArrayList<String> tokens =  new ArrayList<>(Arrays.asList(data.split(" ")));
         String header = tokens.get(0);
-        switch (header){
-            case "HELLO":
-                System.out.println(data);
-                break;
-            default:
-                System.out.println("RECEIVED MSG ON DEFAULT " + data);
-                break;
+        String stringWithoutHeader = "";
+        for (String token : tokens) {
+            stringWithoutHeader += token + " ";
         }
+        ps.println(header + " " +  System.currentTimeMillis() + stringWithoutHeader);
         try{
             acknowledge(receivedPacket);
         }catch (Exception e){

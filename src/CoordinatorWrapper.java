@@ -14,12 +14,6 @@ public class CoordinatorWrapper {
         int loggerPort = Integer.parseInt(properties.get(Constants.LOGGER_PORT));
         int listeningPort = Integer.parseInt(properties.get(Constants.PORT));
         int timeout = Integer.parseInt(properties.get(Constants.TIMEOUT));
-//        UDPLoggerClient udpLoggerClient = new UDPLoggerClient(loggerPort,listeningPort,timeout);
-//        try {
-//            udpLoggerClient.logToServer("HELLO");
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
         try {
             CoordinatorLogger.initLogger(loggerPort,listeningPort,timeout);
         } catch (IOException e) {
