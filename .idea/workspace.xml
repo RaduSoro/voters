@@ -1,14 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="5e28f5d8-e356-4677-847a-7fb24ff22a40" name="Default Changelist" comment="">
+    <list default="true" id="5e28f5d8-e356-4677-847a-7fb24ff22a40" name="Default Changelist" comment="Finished CW">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/betterDistributed/Constants.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/betterDistributed/Constants.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/betterDistributed/CoordinatorClient.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/betterDistributed/CoordinatorClient.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/betterDistributed/CoordinatorServer$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/betterDistributed/CoordinatorServer$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/betterDistributed/CoordinatorServer.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/betterDistributed/CoordinatorServer.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/betterDistributed/CoordinatorWrapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/betterDistributed/CoordinatorWrapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/betterDistributed/ParticipantClient.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/betterDistributed/ParticipantClient.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/betterDistributed/ParticipantServer$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/betterDistributed/ParticipantServer$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/betterDistributed/ParticipantServer.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/betterDistributed/ParticipantServer.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/betterDistributed/ParticipantWrapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/betterDistributed/ParticipantWrapper.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/betterDistributed/VoteMachine$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/betterDistributed/VoteMachine$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/betterDistributed/SocketWrapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/betterDistributed/SocketWrapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/betterDistributed/VoteMachine$1.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/betterDistributed/VoteMachine.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/betterDistributed/VoteMachine.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ParticipantWrapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ParticipantWrapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/betterDistributed/mainCoordinator.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/betterDistributed/mainParticipant.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/CoordinatorClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/CoordinatorClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/CoordinatorServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/CoordinatorServer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ParticipantClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ParticipantClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ParticipantServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ParticipantServer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/UDPLoggerServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/UDPLoggerServer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/VoteMachine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/VoteMachine.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mainCoordinator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Coordinator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mainParticipant.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Participant.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,22 +54,30 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="ignore_missing_gitignore" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../DISTRIBUTED SYSTESMS/voters" />
-    <property name="project.structure.last.edited" value="Modules" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.2" />
   </component>
-  <component name="RunManager" selected="Compound.Run Vote">
-    <configuration name="mainCoordinator" type="Application" factoryName="Application" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="mainCoordinator" />
+  <component name="RunManager" selected="Application.mainParticipant52344">
+    <configuration name="Coordinator" type="Application" factoryName="Application" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Coordinator" />
       <module name="betterDistributed" />
       <option name="PROGRAM_PARAMETERS" value="12345 12344 4 500 A B C D" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="UDPLoggerServer" type="Application" factoryName="Application" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="UDPLoggerServer" />
+      <module name="betterDistributed" />
+      <option name="PROGRAM_PARAMETERS" value="12344" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="mainParticipant52341" type="Application" factoryName="Application" singleton="false">
-      <option name="MAIN_CLASS_NAME" value="mainParticipant" />
+      <option name="MAIN_CLASS_NAME" value="Participant" />
       <module name="betterDistributed" />
       <option name="PROGRAM_PARAMETERS" value="12345 12344 52341 500" />
       <method v="2">
@@ -61,7 +85,7 @@
       </method>
     </configuration>
     <configuration name="mainParticipant52342" type="Application" factoryName="Application" singleton="false">
-      <option name="MAIN_CLASS_NAME" value="mainParticipant" />
+      <option name="MAIN_CLASS_NAME" value="Participant" />
       <module name="betterDistributed" />
       <option name="PROGRAM_PARAMETERS" value="12345 12344 52342 500" />
       <method v="2">
@@ -69,7 +93,7 @@
       </method>
     </configuration>
     <configuration name="mainParticipant52343" type="Application" factoryName="Application" singleton="false">
-      <option name="MAIN_CLASS_NAME" value="mainParticipant" />
+      <option name="MAIN_CLASS_NAME" value="Participant" />
       <module name="betterDistributed" />
       <option name="PROGRAM_PARAMETERS" value="12345 12344 52343 500" />
       <method v="2">
@@ -77,7 +101,7 @@
       </method>
     </configuration>
     <configuration name="mainParticipant52344" type="Application" factoryName="Application" singleton="false">
-      <option name="MAIN_CLASS_NAME" value="mainParticipant" />
+      <option name="MAIN_CLASS_NAME" value="Participant" />
       <module name="betterDistributed" />
       <option name="PROGRAM_PARAMETERS" value="12345 12344 52344 500" />
       <method v="2">
@@ -85,11 +109,12 @@
       </method>
     </configuration>
     <configuration name="Run Vote" type="CompoundRunConfigurationType">
-      <toRun name="mainParticipant52342" type="Application" />
-      <toRun name="mainCoordinator" type="Application" />
-      <toRun name="mainParticipant52344" type="Application" />
       <toRun name="mainParticipant52341" type="Application" />
+      <toRun name="Coordinator" type="Application" />
+      <toRun name="mainParticipant52342" type="Application" />
       <toRun name="mainParticipant52343" type="Application" />
+      <toRun name="mainParticipant52344" type="Application" />
+      <toRun name="UDPLoggerServer" type="Application" />
       <method v="2" />
     </configuration>
     <configuration default="true" type="CompoundRunConfigurationType">
@@ -109,7 +134,8 @@
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="Application.mainCoordinator" />
+      <item itemvalue="Application.UDPLoggerServer" />
+      <item itemvalue="Application.Coordinator" />
       <item itemvalue="Application.mainParticipant52341" />
       <item itemvalue="Application.mainParticipant52342" />
       <item itemvalue="Application.mainParticipant52343" />
@@ -136,6 +162,12 @@
       <workItem from="1589754271383" duration="10180000" />
       <workItem from="1589886883487" duration="16203000" />
       <workItem from="1589913269990" duration="7043000" />
+      <workItem from="1590057867812" duration="24917000" />
+      <workItem from="1590094912203" duration="864000" />
+      <workItem from="1590096016147" duration="1303000" />
+      <workItem from="1590099170147" duration="767000" />
+      <workItem from="1590333584433" duration="1051000" />
+      <workItem from="1590341384225" duration="191000" />
     </task>
     <task id="LOCAL-00001" summary="NU STIU CE AM FACUT DAR MERGE">
       <created>1589919227076</created>
@@ -144,7 +176,70 @@
       <option name="project" value="LOCAL" />
       <updated>1589919227076</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Edge case">
+      <created>1589999289290</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1589999289290</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Implemented outcome">
+      <created>1590000036423</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1590000036423</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Closing client/servers">
+      <created>1590000748327</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1590000748328</updated>
+    </task>
+    <task id="LOCAL-00005" summary="GOD HELP ME IT WORKS">
+      <created>1590002079340</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1590002079341</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Staring Logger implementation">
+      <created>1590058397095</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1590058397095</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Added all files to git&#10;Implemented UDP server/client">
+      <created>1590072524092</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1590072524092</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Sync issue">
+      <created>1590086364525</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1590086364525</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Fixed overwrite bug">
+      <created>1590088275640</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1590088275640</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Finished implementing logger server">
+      <created>1590091952694</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1590091952694</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -152,48 +247,62 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="NU STIU CE AM FACUT DAR MERGE" />
-    <option name="LAST_COMMIT_MESSAGE" value="NU STIU CE AM FACUT DAR MERGE" />
+    <MESSAGE value="Edge case" />
+    <MESSAGE value="Implemented outcome" />
+    <MESSAGE value="Closing client/servers" />
+    <MESSAGE value="GOD HELP ME IT WORKS" />
+    <MESSAGE value="Staring Logger implementation" />
+    <MESSAGE value="Added all files to git&#10;Implemented UDP server/client" />
+    <MESSAGE value="Sync issue" />
+    <MESSAGE value="Fixed overwrite bug" />
+    <MESSAGE value="Finished implementing logger server" />
+    <option name="LAST_COMMIT_MESSAGE" value="Finished implementing logger server" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="574" y="358" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1589914404979">
+    <state x="574" y="358" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1590095206030">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state x="-1346" y="358" key="#com.intellij.execution.impl.EditConfigurationsDialog/1920.0.1920.1050/0.0.1920.1050/-1920.0.1920.1050@-1920.0.1920.1050" timestamp="1589760260298" />
-    <state x="574" y="358" key="#com.intellij.execution.impl.EditConfigurationsDialog/1920.0.1920.1050/0.0.1920.1050/-1920.0.1920.1050@0.0.1920.1050" timestamp="1589914404979" />
+    <state x="-1346" y="358" key="#com.intellij.execution.impl.EditConfigurationsDialog/1920.0.1920.1050/0.0.1920.1050/-1920.0.1920.1050@-1920.0.1920.1050" timestamp="1590059565014" />
+    <state x="574" y="358" key="#com.intellij.execution.impl.EditConfigurationsDialog/1920.0.1920.1050/0.0.1920.1050/-1920.0.1920.1050@0.0.1920.1050" timestamp="1590095206030" />
     <state x="-1230" y="271" key="#com.intellij.refactoring.typeMigration.ui.FailedConversionsDialog" timestamp="1589889436029">
       <screen x="-1920" y="0" width="1920" height="1050" />
     </state>
     <state x="-1230" y="271" key="#com.intellij.refactoring.typeMigration.ui.FailedConversionsDialog/1920.0.1920.1050/0.0.1920.1050/-1920.0.1920.1050@0.0.1920.1050" timestamp="1589889436029" />
-    <state x="579" y="31" key="CommitChangelistDialog2" timestamp="1589919226403">
+    <state x="579" y="31" width="1183" height="987" key="CommitChangelistDialog2" timestamp="1590099246593">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state x="579" y="31" key="CommitChangelistDialog2/1920.0.1920.1050/0.0.1920.1050/-1920.0.1920.1050@0.0.1920.1050" timestamp="1589919226403" />
+    <state x="-1341" y="31" key="CommitChangelistDialog2/1920.0.1920.1050/0.0.1920.1050/-1920.0.1920.1050@-1920.0.1920.1050" timestamp="1590058396343" />
+    <state x="579" y="31" width="1183" height="987" key="CommitChangelistDialog2/1920.0.1920.1050/0.0.1920.1050/-1920.0.1920.1050@0.0.1920.1050" timestamp="1590099246593" />
     <state x="740" y="279" key="FileChooserDialogImpl" timestamp="1589892605405">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state x="-1180" y="279" key="FileChooserDialogImpl/-1920.0.1920.1050/0.0.1920.1050/1920.0.1920.1050@-1920.0.1920.1050" timestamp="1589807670029" />
     <state x="740" y="279" key="FileChooserDialogImpl/-1920.0.1920.1050/0.0.1920.1050/1920.0.1920.1050@0.0.1920.1050" timestamp="1589818043995" />
     <state x="740" y="279" key="FileChooserDialogImpl/1920.0.1920.1050/0.0.1920.1050/-1920.0.1920.1050@0.0.1920.1050" timestamp="1589892605405" />
-    <state width="1877" height="264" key="GridCell.Tab.0.bottom" timestamp="1589920913073">
+    <state width="1877" height="260" key="GridCell.Tab.0.bottom" timestamp="1590337856270">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state width="1877" height="264" key="GridCell.Tab.0.bottom/1920.0.1920.1050/0.0.1920.1050/-1920.0.1920.1050@-1920.0.1920.1050" timestamp="1589760281928" />
-    <state width="1877" height="264" key="GridCell.Tab.0.bottom/1920.0.1920.1050/0.0.1920.1050/-1920.0.1920.1050@0.0.1920.1050" timestamp="1589920913073" />
-    <state width="1877" height="264" key="GridCell.Tab.0.center" timestamp="1589920913073">
+    <state width="1877" height="264" key="GridCell.Tab.0.bottom/1920.0.1920.1050/0.0.1920.1050/-1920.0.1920.1050@-1920.0.1920.1050" timestamp="1590059568782" />
+    <state width="1877" height="260" key="GridCell.Tab.0.bottom/1920.0.1920.1050/0.0.1920.1050/-1920.0.1920.1050@0.0.1920.1050" timestamp="1590337856270" />
+    <state width="1877" height="264" key="GridCell.Tab.0.bottom/1920.0.1920.1050/0.0.1920.1050/-1920.0.1920.1050@1920.0.1920.1050" timestamp="1590004048283" />
+    <state width="1877" height="260" key="GridCell.Tab.0.center" timestamp="1590337856270">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state width="1877" height="264" key="GridCell.Tab.0.center/1920.0.1920.1050/0.0.1920.1050/-1920.0.1920.1050@-1920.0.1920.1050" timestamp="1589760281928" />
-    <state width="1877" height="264" key="GridCell.Tab.0.center/1920.0.1920.1050/0.0.1920.1050/-1920.0.1920.1050@0.0.1920.1050" timestamp="1589920913073" />
-    <state width="1877" height="264" key="GridCell.Tab.0.left" timestamp="1589920913073">
+    <state width="1877" height="264" key="GridCell.Tab.0.center/1920.0.1920.1050/0.0.1920.1050/-1920.0.1920.1050@-1920.0.1920.1050" timestamp="1590059568782" />
+    <state width="1877" height="260" key="GridCell.Tab.0.center/1920.0.1920.1050/0.0.1920.1050/-1920.0.1920.1050@0.0.1920.1050" timestamp="1590337856270" />
+    <state width="1877" height="264" key="GridCell.Tab.0.center/1920.0.1920.1050/0.0.1920.1050/-1920.0.1920.1050@1920.0.1920.1050" timestamp="1590004048283" />
+    <state width="1877" height="260" key="GridCell.Tab.0.left" timestamp="1590337856270">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state width="1877" height="264" key="GridCell.Tab.0.left/1920.0.1920.1050/0.0.1920.1050/-1920.0.1920.1050@-1920.0.1920.1050" timestamp="1589760281928" />
-    <state width="1877" height="264" key="GridCell.Tab.0.left/1920.0.1920.1050/0.0.1920.1050/-1920.0.1920.1050@0.0.1920.1050" timestamp="1589920913073" />
-    <state width="1877" height="264" key="GridCell.Tab.0.right" timestamp="1589920913073">
+    <state width="1877" height="264" key="GridCell.Tab.0.left/1920.0.1920.1050/0.0.1920.1050/-1920.0.1920.1050@-1920.0.1920.1050" timestamp="1590059568782" />
+    <state width="1877" height="260" key="GridCell.Tab.0.left/1920.0.1920.1050/0.0.1920.1050/-1920.0.1920.1050@0.0.1920.1050" timestamp="1590337856270" />
+    <state width="1877" height="264" key="GridCell.Tab.0.left/1920.0.1920.1050/0.0.1920.1050/-1920.0.1920.1050@1920.0.1920.1050" timestamp="1590004048283" />
+    <state width="1877" height="260" key="GridCell.Tab.0.right" timestamp="1590337856270">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state width="1877" height="264" key="GridCell.Tab.0.right/1920.0.1920.1050/0.0.1920.1050/-1920.0.1920.1050@-1920.0.1920.1050" timestamp="1589760281928" />
-    <state width="1877" height="264" key="GridCell.Tab.0.right/1920.0.1920.1050/0.0.1920.1050/-1920.0.1920.1050@0.0.1920.1050" timestamp="1589920913073" />
+    <state width="1877" height="264" key="GridCell.Tab.0.right/1920.0.1920.1050/0.0.1920.1050/-1920.0.1920.1050@-1920.0.1920.1050" timestamp="1590059568782" />
+    <state width="1877" height="260" key="GridCell.Tab.0.right/1920.0.1920.1050/0.0.1920.1050/-1920.0.1920.1050@0.0.1920.1050" timestamp="1590337856270" />
+    <state width="1877" height="264" key="GridCell.Tab.0.right/1920.0.1920.1050/0.0.1920.1050/-1920.0.1920.1050@1920.0.1920.1050" timestamp="1590004048283" />
     <state width="1877" height="330" key="GridCell.Tab.1.bottom" timestamp="1589919450184">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
@@ -210,32 +319,40 @@
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state width="1877" height="330" key="GridCell.Tab.1.right/1920.0.1920.1050/0.0.1920.1050/-1920.0.1920.1050@0.0.1920.1050" timestamp="1589919450184" />
-    <state x="-1480" y="99" key="SettingsEditor" timestamp="1589754835397">
-      <screen x="-1920" y="0" width="1920" height="1050" />
-    </state>
-    <state x="-1480" y="99" key="SettingsEditor/1920.0.1920.1050/0.0.1920.1050/-1920.0.1920.1050@-1920.0.1920.1050" timestamp="1589754835397" />
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1589919232503">
+    <state x="440" y="99" key="SettingsEditor" timestamp="1590096611617">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2/1920.0.1920.1050/0.0.1920.1050/-1920.0.1920.1050@0.0.1920.1050" timestamp="1589919232503" />
-    <state x="1916" y="-19" width="1414" height="727" maximized="true" key="dock-window-1" timestamp="1589914239915">
-      <screen x="1920" y="0" width="1920" height="1050" />
+    <state x="-1480" y="99" key="SettingsEditor/1920.0.1920.1050/0.0.1920.1050/-1920.0.1920.1050@-1920.0.1920.1050" timestamp="1589754835397" />
+    <state x="440" y="99" key="SettingsEditor/1920.0.1920.1050/0.0.1920.1050/-1920.0.1920.1050@0.0.1920.1050" timestamp="1590096611617" />
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1590088278695">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state x="-1368" y="253" key="Vcs.Push.Dialog.v2/1920.0.1920.1050/0.0.1920.1050/-1920.0.1920.1050@-1920.0.1920.1050" timestamp="1590058398985" />
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2/1920.0.1920.1050/0.0.1920.1050/-1920.0.1920.1050@0.0.1920.1050" timestamp="1590088278695" />
+    <state x="-1679" y="-9" width="1399" height="731" maximized="true" key="dock-window-1" timestamp="1590096035052">
+      <screen x="-1920" y="0" width="1920" height="1050" />
     </state>
     <state x="260" y="0" width="1424" height="1033" key="dock-window-1/-1920.0.1920.1050/0.0.1920.1050/1920.0.1920.1050@-1920.0.1920.1050" timestamp="1589796054228" />
-    <state x="263" y="-23" width="1424" height="1033" maximized="true" key="dock-window-1/1920.0.1920.1050/0.0.1920.1050/-1920.0.1920.1050@-1920.0.1920.1050" timestamp="1589755852051" />
-    <state x="1916" y="-19" width="1414" height="727" maximized="true" key="dock-window-1/1920.0.1920.1050/0.0.1920.1050/-1920.0.1920.1050@0.0.1920.1050" timestamp="1589914239915" />
-    <state x="646" y="241" width="627" height="568" key="find.popup" timestamp="1589909163821">
+    <state x="263" y="-23" width="1424" height="1033" maximized="true" key="dock-window-1/1920.0.1920.1050/0.0.1920.1050/-1920.0.1920.1050@-1920.0.1920.1050" timestamp="1590057895897" />
+    <state x="-1679" y="-9" width="1399" height="731" maximized="true" key="dock-window-1/1920.0.1920.1050/0.0.1920.1050/-1920.0.1920.1050@0.0.1920.1050" timestamp="1590096035052" />
+    <state x="-8" y="-8" width="1893" height="727" maximized="true" key="dock-window-1/1920.0.1920.1050/0.0.1920.1050/-1920.0.1920.1050@1920.0.1920.1050" timestamp="1590003792152" />
+    <state x="2118" y="-14" width="1404" height="731" maximized="true" key="dock-window-2" timestamp="1590094924082">
+      <screen x="1920" y="0" width="1920" height="1050" />
+    </state>
+    <state x="2118" y="-14" width="1404" height="731" maximized="true" key="dock-window-2/1920.0.1920.1050/0.0.1920.1050/-1920.0.1920.1050@0.0.1920.1050" timestamp="1590094924082" />
+    <state x="646" y="241" width="627" height="568" key="find.popup" timestamp="1590341390940">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state x="-1274" y="241" width="627" height="568" key="find.popup/1920.0.1920.1050/0.0.1920.1050/-1920.0.1920.1050@-1920.0.1920.1050" timestamp="1589759663649" />
-    <state x="646" y="241" width="627" height="568" key="find.popup/1920.0.1920.1050/0.0.1920.1050/-1920.0.1920.1050@0.0.1920.1050" timestamp="1589909163821" />
-    <state x="-1304" y="243" key="run.anything.popup" timestamp="1589919129830">
+    <state x="646" y="241" width="627" height="568" key="find.popup/1920.0.1920.1050/0.0.1920.1050/-1920.0.1920.1050@0.0.1920.1050" timestamp="1590341390940" />
+    <state x="-1304" y="243" width="672" height="677" key="run.anything.popup" timestamp="1590085987543">
       <screen x="-1920" y="0" width="1920" height="1050" />
     </state>
-    <state x="-1304" y="243" key="run.anything.popup/1920.0.1920.1050/0.0.1920.1050/-1920.0.1920.1050@0.0.1920.1050" timestamp="1589919129830" />
-    <state x="623" y="227" width="672" height="678" key="search.everywhere.popup" timestamp="1589915462675">
+    <state x="-1304" y="243" width="672" height="677" key="run.anything.popup/1920.0.1920.1050/0.0.1920.1050/-1920.0.1920.1050@0.0.1920.1050" timestamp="1590085987543" />
+    <state x="623" y="227" width="672" height="678" key="search.everywhere.popup" timestamp="1590341449252">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state x="623" y="227" width="672" height="678" key="search.everywhere.popup/1920.0.1920.1050/0.0.1920.1050/-1920.0.1920.1050@0.0.1920.1050" timestamp="1589915462675" />
+    <state x="623" y="227" width="672" height="678" key="search.everywhere.popup/1920.0.1920.1050/0.0.1920.1050/-1920.0.1920.1050@0.0.1920.1050" timestamp="1590341449252" />
+    <state x="2543" y="227" width="672" height="678" key="search.everywhere.popup/1920.0.1920.1050/0.0.1920.1050/-1920.0.1920.1050@1920.0.1920.1050" timestamp="1590003486266" />
   </component>
 </project>

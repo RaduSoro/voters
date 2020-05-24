@@ -92,8 +92,8 @@ public class CoordinatorClient implements Runnable {
                 participantWrapper.logger.detailsReceived(portsList);
                 break;
             default:
-                System.out.println(parsedMessage);
-                System.out.println("MESAJ PE CLIENT ????????????" + parsedMessage);
+//                System.out.println(parsedMessage);
+//                System.out.println("MESAJ PE CLIENT ????????????" + parsedMessage);
         }
     }
 }

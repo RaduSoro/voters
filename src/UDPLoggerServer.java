@@ -8,15 +8,17 @@ public class UDPLoggerServer {
     private static int port;
     private static DatagramSocket socket;
     private static PrintStream ps;
+    static boolean socketNotTimedOut = true;
     public static void main(String[] args) throws IOException {
         ps = new PrintStream("logger_server_" + System.currentTimeMillis() + ".log");
         port = Integer.parseInt(args[0]);
         {
             try {
                 socket = new DatagramSocket(port);
-                System.out.println(port);
+//                System.out.println(port);
             } catch (SocketException e) {
                 e.printStackTrace();
+                socketNotTimedOut = false;
             }
         }
        Thread thread = new Thread(){
@@ -32,14 +34,15 @@ public class UDPLoggerServer {
        thread.start();
 
     }
-    public static void read() throws IOException {
+    public static void read() throws IOException, SocketException {
         byte[] receiveByte = new byte[65535];
         DatagramPacket receivedPacket = null;
-        while (true){
+        while (socketNotTimedOut){
             // Step 2 : create a DatgramPacket to receive the data.
             receivedPacket = new DatagramPacket(receiveByte, receiveByte.length);
             // Step 3 : revieve the data in byte buffer.
             socket.receive(receivedPacket);
+//            socket.setSoTimeout(10000);
             handle(data(receiveByte).toString(),receivedPacket);
             // Exit the server if the client sends "bye"
             if (data(receiveByte).toString().equals("bye"))

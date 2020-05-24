@@ -18,7 +18,7 @@ public class VoteMachine {
         //pick the first vote
         participantWrapper.logger.beginRound(1);
         String vote = participantWrapper.pickRandomVote(participantWrapper.votingOptions);
-        System.out.println("MY FIRST VOTE IS: " + vote);
+//        System.out.println("MY FIRST VOTE IS: " + vote);
         //put the vote in the participant wrapper and the thread
         previousRoundVotes.put(String.valueOf(participantWrapper.listeningPort),vote);
         participantWrapper.getVotes().put(String.valueOf(participantWrapper.listeningPort),vote);
@@ -48,11 +48,11 @@ public class VoteMachine {
             }
             //have the participant pick a new vote for itself considering the new votes
             participantWrapper.logger.beginRound(i);
-            System.out.println("CURRENT VOTES IN THE ROUND "+ i +" ARE " + participantWrapper.getVotes());
-            System.out.println("Previous round votes" +" ARE " + previousRoundVotes);
+//            System.out.println("CURRENT VOTES IN THE ROUND "+ i +" ARE " + participantWrapper.getVotes());
+//            System.out.println("Previous round votes" +" ARE " + previousRoundVotes);
 
             String currentVote = participantWrapper.pickVoteOutcome();
-            System.out.println("CURRENT ROUND "+i+" OUTCOME IS " +currentVote );
+//            System.out.println("CURRENT ROUND "+i+" OUTCOME IS " +currentVote );
             //update the vote in the map
             participantWrapper.getVotes().replace(String.valueOf(participantWrapper.listeningPort),currentVote);
             //check the votes inside the participant wrapper which are updated by the server make the difference and broadcast them further

@@ -37,7 +37,7 @@ public class ParticipantServer implements Runnable {
     }
 
     public synchronized void run() {
-        System.out.println("Running participant server, listening on port: " + this.port);
+//        System.out.println("Running participant server, listening on port: " + this.port);
         try {
             serverSocket = new ServerSocket(port);
         } catch (IOException e) {
@@ -137,7 +137,7 @@ public class ParticipantServer implements Runnable {
                 break;
             default:
                 participantWrapper.logger.messageReceived(Integer.parseInt(socketWrapper.listeningPort),message);
-                System.out.println("DEFAULT ON PARTICIPANT SERVER REACHED WITH:  " + parsedMessage);
+//                System.out.println("DEFAULT ON PARTICIPANT SERVER REACHED WITH:  " + parsedMessage);
                 break;
         }
 

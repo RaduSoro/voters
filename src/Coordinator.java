@@ -3,7 +3,7 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.zip.CheckedOutputStream;
 
-public class mainCoordinator {
+public class Coordinator {
     public static void main(String[] args) {
         //        〈port〉 〈lport〉 〈parts〉 〈timeout〉[〈option〉]
         HashMap<String,String> properties = new HashMap<>();

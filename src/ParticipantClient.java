@@ -70,7 +70,7 @@ public class ParticipantClient implements Runnable{
         String header = parsedMessage.get(0);
         switch (header){
             default:
-                System.out.println("DEFAULT REACHED ON PARTICIPANT CLIENT WITH THE MESSAGE : " + parsedMessage);
+//                System.out.println("DEFAULT REACHED ON PARTICIPANT CLIENT WITH THE MESSAGE : " + parsedMessage);
         }
     }
 }

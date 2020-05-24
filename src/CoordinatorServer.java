@@ -112,7 +112,7 @@ public class CoordinatorServer implements Runnable{
                 handleMessage((String) receivedObject,socketWrapper);
             } catch (Exception e) {
                 if (!outcome){
-                    System.out.println(socketWrapper.listeningPort + " has crashed");
+//                    System.out.println(socketWrapper.listeningPort + " has crashed");
                     logger.participantCrashed(Integer.parseInt(socketWrapper.listeningPort));
                     try {
                         socketWrapper.socket.close();
@@ -164,10 +164,10 @@ public class CoordinatorServer implements Runnable{
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
-                System.out.println(message);
+//                System.out.println(message);
                 break;
             default:
-                System.out.println("DEFAULT REACHED WITH  " + parsedMessage);
+//                System.out.println("DEFAULT REACHED WITH  " + parsedMessage);
                 break;
         }
 

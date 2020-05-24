@@ -1,7 +1,7 @@
 import java.io.IOException;
 import java.util.HashMap;
 
-public class mainParticipant {
+public class Participant {
     public static void main(String[] args) {
         //        <cport> <lport> <pport> <timeout>
         HashMap<String,String> properties = new HashMap<>();
@@ -17,7 +17,7 @@ public class mainParticipant {
         try {
             ParticipantLogger.initLogger(loggerPort,listeningPort,timeout);
         } catch (IOException e) {
-            System.out.println("GETTING LOGGER INSTANCE");
+//            System.out.println("GETTING LOGGER INSTANCE");
         }
             logger = ParticipantLogger.getLogger();
         ParticipantWrapper participantWrapper = new ParticipantWrapper(properties, logger);
